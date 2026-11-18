@@ -319,11 +319,11 @@ def house_price_pipeline(X, y, ratio_num_idx, ratio_den_idx, cat_labels=None, tr
     w = ols_fit(X_train, y_train)
     X_val = splits['X_val']
     y_val = splits['y_val']
-    y_val_pred = ols_predict(X_val)
+    y_val_pred = ols_predict(X_val, w)
     val_metrics = evaluate_predictions(y_val, y_val_pred)
     X_test = splits['X_test']
     y_test = splits['y_test']
-    y_test_pred = ols_predict(X_test)
+    y_test_pred = ols_predict(X_test, w)
     test_metrics = evaluate_predictions(y_test, y_test_pred)
 
     return {
